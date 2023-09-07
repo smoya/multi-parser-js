@@ -4,6 +4,7 @@ import { Parser as ParserV3 } from 'parserv3';
 import { AvroSchemaParser } from '@asyncapi/avro-schema-parser';
 import { OpenAPISchemaParser } from '@asyncapi/openapi-schema-parser';
 import { RamlDTSchemaParser } from '@asyncapi/raml-dt-schema-parser';
+import { ProtoBuffSchemaParser } from '@asyncapi/protobuf-schema-parser';
 
 import type { ParserOptions as ParserOptionsParserV2 } from 'parserv2/esm/parser';
 import type { ParserOptions as ParserOptionsParserV3 } from 'parserv3/esm/parser';
@@ -28,6 +29,7 @@ export function NewParser(parserAPIVersion: string, options?: Options): Parser {
       AvroSchemaParser(),
       OpenAPISchemaParser(),
       RamlDTSchemaParser(),
+      ProtoBuffSchemaParser(),
     ];
 
     if (!parserOptions.schemaParsers) {

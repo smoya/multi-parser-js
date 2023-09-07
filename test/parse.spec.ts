@@ -5,6 +5,7 @@ import { Parser as ParserV3 } from 'parserv3';
 import { AvroSchemaParser } from '@asyncapi/avro-schema-parser';
 import { OpenAPISchemaParser } from '@asyncapi/openapi-schema-parser';
 import { RamlDTSchemaParser } from '@asyncapi/raml-dt-schema-parser';
+import { ProtoBuffSchemaParser } from '@asyncapi/protobuf-schema-parser';
 
 import { NewParser } from '../src/index';
 import type { Options } from '../src/parse';
@@ -38,6 +39,7 @@ describe('NewParser()', function() {
     expect(parser.parserRegistry.get(knownSchemaParser.getMimeTypes()[0])).toStrictEqual(knownSchemaParser);
     expect(parser.parserRegistry.get(OpenAPISchemaParser().getMimeTypes()[0])).toEqual(OpenAPISchemaParser());
     expect(parser.parserRegistry.get(RamlDTSchemaParser().getMimeTypes()[0])).toEqual(RamlDTSchemaParser());
+    expect(parser.parserRegistry.get(ProtoBuffSchemaParser().getMimeTypes()[0])).toEqual(ProtoBuffSchemaParser());
   });
 
   it('Creates a Parser without options compatible with Parser-API v2', async function() {
@@ -61,6 +63,7 @@ describe('NewParser()', function() {
     expect(parser.parserRegistry.get(knownSchemaParser.getMimeTypes()[0])).toStrictEqual(knownSchemaParser);
     expect(parser.parserRegistry.get(OpenAPISchemaParser().getMimeTypes()[0])).toEqual(OpenAPISchemaParser());
     expect(parser.parserRegistry.get(RamlDTSchemaParser().getMimeTypes()[0])).toEqual(RamlDTSchemaParser());
+    expect(parser.parserRegistry.get(ProtoBuffSchemaParser().getMimeTypes()[0])).toEqual(ProtoBuffSchemaParser());
   });
 
   it('Creates a Parser without options compatible with old Parser API (AKA v0)', async function() {
@@ -84,5 +87,6 @@ describe('NewParser()', function() {
     expect(parser.parserRegistry.get(knownSchemaParser.getMimeTypes()[0])).toStrictEqual(knownSchemaParser);
     expect(parser.parserRegistry.get(OpenAPISchemaParser().getMimeTypes()[0])).toEqual(OpenAPISchemaParser());
     expect(parser.parserRegistry.get(RamlDTSchemaParser().getMimeTypes()[0])).toEqual(RamlDTSchemaParser());
+    expect(parser.parserRegistry.get(ProtoBuffSchemaParser().getMimeTypes()[0])).toEqual(ProtoBuffSchemaParser());
   });
 });
