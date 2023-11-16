@@ -55,6 +55,13 @@ describe('NewParser()', function() {
     expect(parser.parserRegistry.get('fake-format')).not.toBeUndefined();
   });
 
+  it('Creates a Parser with options compatible with Parser-API v3', async function() {
+    const options: Options = { parserOptions: { schemaParsers: [fakeSchemaParser]} };
+    const parser = NewParser(3, options);
+    expect(parser).toBeInstanceOf(ParserV3);
+    expect(parser.parserRegistry.get('fake-format')).not.toBeUndefined();
+  });
+
   it('Creates a Parser 2 with options including known Schema Parsers and do not overwrite those with Parser-API v2', async function() {
     const knownSchemaParser = AvroSchemaParser();
     const options: Options = { parserOptions: { schemaParsers: [knownSchemaParser]}, includeSchemaParsers: true };
